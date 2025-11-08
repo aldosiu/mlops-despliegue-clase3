@@ -30,7 +30,7 @@ jobs:
         run: python test.py
 
       - name: 6) Publicar métricas y gráfica
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: resultados
           path: |
