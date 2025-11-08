@@ -11,22 +11,22 @@ jobs:
 
     steps:
       - name: 1) Clonar repositorio
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 2) Configurar Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
       - name: 3) Instalar dependencias
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 4) Entrenar modelo
+      - name: 4) Entrenar el modelo
         run: python train.py
 
-      - name: 5) Evaluar modelo
+      - name: 5) Evaluar modelo y generar métricas
         run: python test.py
 
       - name: 6) Publicar métricas y gráfica
@@ -36,3 +36,4 @@ jobs:
           path: |
             metrics.txt
             resultados.png
+
